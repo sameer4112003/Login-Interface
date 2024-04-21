@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+   body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #3d5a80;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative; /* Make the body a positioning context */
+}
+
+/* Create corner designs */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(15deg, #fda085 0%, #f6d365 100%);
+    border-radius: 50%;
+    z-index: -1; /* Move behind the body content */
+}
+
+/* Top left corner */
+body::before {
+    top: 0;
+    left: 0;
+}
+
+/* Bottom right corner */
+body::after {
+    bottom: 0;
+    right: 0;
+}
+
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    position: relative; /* Make the container a positioning context */
+    animation: float 5s ease-in-out infinite;
+}
+
+/* Corner designs */
+#container::before,
+#container::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #fda085 0%, #f6d365 100%);
+    border-radius: 50%;
+    z-index: -1; /* Move behind the container content */
+}
+
+/* Top left corner */
+#container::before {
+    top: -40px;
+    left: -40px;
+}
+
+/* Bottom right corner */
+#container::after {
+    bottom: -40px;
+    right: -40px;
+}
+
+#login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    
+   
+}
+
+#title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 36px;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#input-container {
+    margin-bottom: 30px;
+}
+
+.input-wrapper {
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 34px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #ffcc00; /* change color when focused */
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.5); /* add a subtle shadow when focused */
+}
+
+#login-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #ffcc00;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    
+}
+
+#login-btn:hover {
+    background-color:#9ef01a;
+    border-color: #9ef01a;
+}
+
+#image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+    position: relative; /* Make the container a positioning context */
+    border: 2px solid #fff; /* Add white border */
+    border-radius: 10px; /* Add border radius */
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Top left decorative element */
+#image-container::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fda085;
+    transform: rotate(45deg);
+}
+
+/* Bottom right decorative element */
+#image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fda085;
+    transform: rotate(45deg);
+}
+
+/* Diagonal decorative element */
+#image-container::before,
+#image-container::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fda085 0%, #f6d365 100%);
+    z-index: -1; /* Move behind the container content */
+}
+
+/* Top left corner */
+#image-container::before {
+    top: -30px;
+    left: -30px;
+}
+
+/* Bottom right corner */
+#image-container::after {
+    bottom: -30px;
+    right: -30px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Floating sparkles animation */
+
+@keyframes sparkle {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(50px) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.sparkle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(15deg, #fda085 0%, #f6d365 100%);
+    border-radius: 50%;
+    animation: sparkle 30s linear infinite;
+}
+
+/* Position sparkles */
+.sparkle:nth-child(1) {
+    top: 10%;
+    left: 10%;
+}
+
+.sparkle:nth-child(2) {
+    top: 20%;
+    left: 40%;
+}
+
+.sparkle:nth-child(3) {
+    top: 40%;
+    left: 70%;
+}
+
+.sparkle:nth-child(4) {
+    top: 60%;
+    left: 30%;
+}
+
+.sparkle:nth-child(5) {
+    top: 80%;
+    left: 60%;
+}
+
+
+#image {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 10px;
+}
+    </style>
+</head>
+<body>
+    <div class="sparkle"></div>
+    <div id="container">
+        <div id="image-container">
+            <img src="clg.png" alt="Image" id="image">
+        </div>
+        <div class="sparkle"></div>
+        <div id="login-container" >
+            <div class="sparkle"></div>
+            <h1 id="title">STUDENT LOGIN</h1>
+            <div id="input-container">
+                <div class="input-wrapper">
+                    <img src="contacts.png" alt="Username" class="icon">
+                    <input type="text" id="username" placeholder="Username">
+                </div>
+                <div class="input-wrapper">
+                    <img src="lock.png" alt="Password" class="icon">
+                    <input type="password" id="password" placeholder="Password">
+                </div>
+                <label for="show-password">
+                    <input type="checkbox" id="show-password"> Show password
+                </label>
+            </div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            
+            <button id="login-btn">LOGIN</button>
+        </div>
+        
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const showPasswordCheckbox = document.getElementById("show-password");
+            const passwordInput = document.getElementById("password");
+
+            showPasswordCheckbox.addEventListener("change", function() {
+                if (this.checked) {
+                    passwordInput.type = "text";
+                } else {
+                    passwordInput.type = "password";
+                }
+            });
+
+            document.getElementById("login-btn").addEventListener("click", function() {
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+
+                if (username.trim() !== "" && password.trim() !== "") {
+                    // Redirect to next page
+                    window.location.href = "new.html";
+                } else {
+                    alert("Please fill in all fields!");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
